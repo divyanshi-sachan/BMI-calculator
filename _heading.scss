@@ -1,0 +1,313 @@
+@use "../variables";
+@use "../breakpoints";
+
+#heading {
+    position: relative;
+    padding: 3.2rem 2.4rem 0 2.4rem;
+
+    .heading__background {
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: -1;
+        height: 64rem;
+        position: absolute;
+        border-radius: 0 0 3.5rem 3.5rem;
+        background: var(--Gradient-1, linear-gradient(290deg, variables.$blue-gradient 0%, rgba(214, 252, 254, 0.00) 100%));
+    }
+
+    .heading {
+        text-align: center;
+
+        .logo {
+            width: 4rem;
+            height: 4rem;
+            margin: 0 auto;
+        }
+
+        .heading--l {
+            margin: 2.4rem 0;
+        }
+    }
+
+    .card {
+        gap: 2.4rem;
+        display: flex;
+        padding: 2.4rem;
+        margin-top: 4.8rem;
+        border-radius: 1rem;
+        flex-direction: column;
+        background: variables.$pure-white;
+        box-shadow: 1.6rem 3.2rem 5.6rem 0 rgba(143, 174, 207, 0.25);
+
+        &__heading {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .radio {
+                height: 3.1rem;
+                display: flex;
+                cursor: pointer;
+                line-height: 150%;
+                font-size: 1.6rem;
+                user-select: none;
+                position: relative;
+                align-items: center;
+                padding-left: 4.9rem;
+                -ms-user-select: none;
+                -moz-user-select: none;
+                -webkit-user-select: none;
+                color: variables.$gunmetal;
+                font-family: "Inter-SemiBold";
+
+                &:hover {
+                    input:not(:checked)~.checkmark {
+                        outline: 1px solid variables.$blue;
+                    }
+                }
+
+                input {
+                    width: 0;
+                    height: 0;
+                    opacity: 0;
+                    cursor: pointer;
+                    position: absolute;
+
+                    &:checked~.checkmark {
+                        background-color: variables.$blue-light;
+
+                        &::after {
+                            display: block;
+                        }
+                    }
+                }
+
+                .checkmark {
+                    top: 0;
+                    left: 0;
+                    width: 3.1rem;
+                    height: 3.1rem;
+                    position: absolute;
+                    border-radius: 50%;
+                    background: variables.$pure-white;
+                    outline: 1px solid variables.$border;
+
+                    &::after {
+                        top: 50%;
+                        left: 50%;
+                        content: "";
+                        display: none;
+                        width: 1.55rem;
+                        height: 1.55rem;
+                        position: absolute;
+                        border-radius: 50%;
+                        background: variables.$blue;
+                        transform: translateY(-50%) translateX(-50%);
+                    }
+                }
+            }
+        }
+
+        #metric {
+            display: flex;
+        }
+
+        #imperial {
+            display: none;
+
+            >div {
+                flex-direction: row;
+                align-items: flex-end;
+            }
+        }
+
+        &__body {
+            gap: 1.6rem;
+            display: flex;
+            flex-direction: column;
+
+            div {
+                gap: 0.8rem;
+                display: flex;
+                position: relative;
+                flex-direction: column;
+
+                label {
+                    font-size: 1.4rem;
+                    line-height: 150%;
+                    color: variables.$dark-electric-blue;
+                }
+
+                input {
+                    width: 100%;
+                    outline: none;
+                    font-size: 2.4rem;
+                    line-height: 1.142;
+                    padding: 2rem 2.4rem;
+                    padding-right: 6.3rem;
+                    border-radius: 1.2rem;
+                    letter-spacing: -1.2px;
+                    color: variables.$gunmetal;
+                    font-family: "Inter-SemiBold";
+                    background: variables.$pure-white;
+                    border: 1px solid variables.$border;
+
+                    &:focus {
+                        border: 1px solid variables.$blue;
+                    }
+
+                    ::placeholder {
+                        opacity: 0.25;
+                    }
+                }
+            }
+
+            &__unit {
+                bottom: 2rem;
+                right: 2.4rem;
+                font-size: 2.4rem;
+                position: absolute;
+                line-height: 1.2085;
+                color: variables.$blue;
+                letter-spacing: -0.56px;
+                font-family: "Inter-SemiBold";
+            }
+        }
+
+        &__footer {
+            gap: 0.8rem;
+            display: flex;
+            padding: 3.2rem;
+            border-radius: 1.6rem;
+            flex-direction: column;
+            align-items: flex-start;
+            color: variables.$pure-white;
+            background: linear-gradient(90deg, variables.$blue 0%, #587DFF 100%);
+
+            div {
+                width: 90%;
+                display: flex;
+                flex-direction: column;
+
+                h3 {
+                    font-size: 1.6rem;
+                    line-height: 150%;
+                    font-family: "Inter-SemiBold";
+                }
+    
+                span {
+                    display: none;
+                    font-size: 4.8rem;
+                    line-height: 110%;
+                    letter-spacing: -2.4px;
+                    font-family: "Inter-SemiBold";
+                }
+            }
+
+            p {
+                line-height: 150%;
+                font-size: 1.4rem;
+            }
+        }
+    }
+}
+
+@include breakpoints.mq(tablet) {
+    #heading {
+        padding-left: 3.9rem;
+        padding-right: 3.9rem;
+
+        .heading__background {
+            left: 2.4rem;
+        }
+
+        .heading {
+            .heading--l {
+                width: 35rem;
+                margin: 4rem auto 2.4rem auto;
+            }
+        }
+
+        .card {
+            gap: 3.2rem;
+            padding: 3.2rem;
+            margin-top: 4rem;
+
+            &__heading {
+                gap: 2.4rem;
+                justify-content: flex-start;
+
+                label {
+                    flex: 1 1 50%;
+                }
+            }
+
+            &__body {
+                gap: 2.4rem;
+            }
+
+            #metric {
+                flex-direction: row;
+            }
+
+            &__footer {
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                border-radius: 16rem 99.9rem 99.9rem 16rem;
+
+                #bmi {
+                    margin-bottom: 0;
+                }
+
+                >* {
+                    flex: 1 1 50%;
+                }
+            }
+        }
+    }
+}
+
+@include breakpoints.mq(desktop) {
+    #heading {
+        gap: 3.2rem;
+        display: flex;
+        padding: 7.5rem 14rem 0 14rem;
+
+        .heading__background {
+            width: 97.8rem;
+            height: 73.7rem;
+        }
+
+        .heading {
+            width: 100%;
+            text-align: left;
+            max-width: 56.4rem;
+
+            .logo {
+                margin-left: 0;
+            }
+
+            .heading--l {
+                width: 85%;
+                margin: 12.7rem 0 3.5rem 0;
+            }
+
+            .text {
+                width: 46.5rem;
+            }
+        }
+
+        .card {
+            width: 56.4rem;
+            margin-top: 6.8rem;
+
+            &__footer {
+                #bmi {
+                    font-size: 6.4rem;
+                }
+            }
+        }
+    }
+}

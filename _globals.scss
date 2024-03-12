@@ -1,0 +1,50 @@
+@use "./variables";
+@use "./breakpoints";
+
+.heading--l {
+    font-size: 4.8rem;
+    line-height: 110%;
+    letter-spacing: -2.4px;
+    color: variables.$gunmetal;
+    font-family: "Inter-SemiBold";
+}
+
+.heading--m {
+    font-size: 2.4rem;
+    line-height: 1.2085;
+    letter-spacing: -1.2px;
+    color: variables.$gunmetal;
+    font-family: "Inter-SemiBold";
+}
+
+.heading--s {
+    font-size: 2rem;
+    line-height: 110%;
+    letter-spacing: -1.2px;
+    color: variables.$gunmetal;
+    font-family: "Inter-SemiBold";
+}
+
+.text {
+    font-size: 1.6rem;
+    line-height: 150%;
+    color: variables.$dark-electric-blue;
+}
+
+.main__heading {
+    font-size: 3.2rem;
+    line-height: 110%;
+    letter-spacing: -1.6px;
+    color: variables.$gunmetal;
+    font-family: "Inter-SemiBold";
+}
+
+@include breakpoints.mq(desktop) {
+    .heading--l {
+        font-size: 6.4rem;
+    }
+
+    .main__heading {
+        font-size: 4.8rem;
+    }
+}

@@ -1,0 +1,130 @@
+@use "../variables";
+@use "../breakpoints";
+
+#limitation {
+    margin: 7.2rem 2.9rem 9.6rem 1.9rem;
+
+    .header {
+        img {
+            display: none;
+        }
+
+        h1 {
+            margin-bottom: 3.2rem;
+        }
+    
+        >h1,
+        >p {
+            text-align: center;
+        }
+    }
+
+    .body {
+        gap: 1.6rem;
+        display: flex;
+        margin-top: 5.6rem;
+        flex-direction: column;
+
+        .card {
+            padding: 2.4rem;
+            border-radius: 1.6rem;
+            background: variables.$pure-white;
+            box-shadow: 16px 32px 56px 0px rgba(143, 174, 207, 0.25);
+
+            &__heading {
+                gap: 1.6rem;
+                display: flex;
+                align-items: center;
+                margin-bottom: 1.6rem;
+
+                img {
+                    width: 3.2rem;
+                    height: 3.2rem;
+                }
+            }
+        }
+    }
+}
+
+@include breakpoints.mq(tablet) {
+    #limitation {
+        margin: 9.6rem 4.3rem 9.6rem 3.9rem;
+
+        .body {
+            flex-wrap: wrap;
+            gap: 2.4rem 1.5rem;
+            flex-direction: row;
+            justify-content: center;
+
+            .card {
+                padding: 3.2rem;
+                max-width: calc(50% - 0.8rem);
+            }
+        }
+    }
+}
+
+@include breakpoints.mq(desktop) {
+    #limitation {
+        display: grid;
+        height: 70.4rem;
+        position: relative;
+        margin: 12rem 14rem;
+
+        .header {
+            width: 56.4rem;
+            height: 18.4rem;
+            position: relative;
+
+            h1 {
+                margin-bottom: 3.5rem;
+            }
+
+            >h1,
+            >p {
+                text-align: left;
+            }
+
+            img {
+                right: 50%;
+                bottom: -100%;
+                display: block;
+                position: absolute;
+            }
+        }
+
+        .body {
+            .card {
+                width: 36.5rem;
+
+                &:nth-child(1) {
+                    top: 0;
+                    right: 9.9rem;
+                    position: absolute;
+                }
+
+                &:nth-child(2),
+                &:nth-child(3) {
+                    right: 0;
+                    top: 26.4rem;
+                    position: absolute;
+                }
+
+                &:nth-child(2) {
+                    right: 40rem;
+                }
+
+                &:nth-child(4),
+                &:nth-child(5) {
+                    top: 47.2rem;
+                    right: 19.9rem;
+                    position: absolute;
+                }
+
+                &:nth-child(4) {
+                    right: calc(19.9rem + 36.5rem + 3.2rem);
+                }
+            }
+        }
+    }
+}
